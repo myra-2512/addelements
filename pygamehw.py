@@ -1,31 +1,21 @@
 import pygame
+rect=pygame.Rect(100,100,50,50)
 
 def main():
-    # Initialize Pygame
     pygame.init()
-
-    # Set up display
-    width, height = 800, 600
-    screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Pygame Window")
-    
-
-    # Main loop
-    running = True
-    while running:
+    screen=pygame.display.set_mode((400,300))
+    pygame.display.set_caption("Hello World")
+    clock=pygame.time.Clock()
+    done=False
+    while not done:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-        # Fill the screen with a color (RGB)
-        screen.fill((0, 128, 255))
-
-        # Update the display
+            if event.type==pygame.QUIT:
+                done=True
+        screen.fill((0,0,0))
+        pygame.draw.rect(screen,(255,0,0),rect)
         pygame.display.flip()
-
-    # Quit Pygame
+        clock.tick(60)
     pygame.quit()
-if __name__ == "__main__":
+
+if __name__=="__main__":
     main()
-
-
